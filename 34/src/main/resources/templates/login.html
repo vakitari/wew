@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/login}" th:object="${user}" method="post">
+    <input type="hidden" name="id" th:field="*{id}" th:value="${user.id}" />
+    <label>login</label>
+    <input type="text" th:field="*{login}">
+    <label>pass</label>
+    <input type="password" th:field="*{password}">
+    <button  type="submit">vxod</button>
+
+</form>
+</body>
+</html>

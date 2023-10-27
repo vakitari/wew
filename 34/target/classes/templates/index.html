@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Application</title>
+</head>
+<body>
+ <table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>pass</th>
+        <th>login</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}"></td>
+    <td th:text="${user.id}"></td>
+    <td th:text="${user.password}"></td>
+    <td th:text="${user.login}"></td>
+    <td th:href="@{/api/user/edit(id=${user.id})}">
+        <a th:href="@{/api/user/edit(id=${user.id})}">edit</a>
+        <a th:href="@{/api/user/del(id=${user.id})}">delete</a>
+    </td>
+
+
+    </tr>
+    </tbody>
+</table>
+<form th:action="@{/api/user/add}" th:object="${user}" method="post">
+    <label>login</label>
+    <input type="text" th:field="*{login}">
+    <label>pass</label>
+    <input type="text" th:field="*{password}">
+    <button  type="submit">dghfvdfg</button>
+
+</form>
+
+ <form th:action="@{/logout}" th:object="${user}" method="post">
+     <input type="hidden" name="_csrf" th:value="${_csrf.token}">
+     <button  type="submit">yxod</button>
+
+ </form>
+</body>
+</html>

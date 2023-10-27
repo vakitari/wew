@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Application</title>
+</head>
+<body>
+ <table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>prim</th>
+        <th>user</th>
+        <th></th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="history : ${histories}"></td>
+    <td th:text="${history.id}"></td>
+    <td th:text="${history.prim}"></td>
+    <td th:text="${history.user.login}"></td>
+    <td th:href="@{/api/history/edit(id=${history.id})}">
+    <a th:href="@{/api/history/edit(id=${history.id})}">edit</a>
+    <a th:href="@{/api/history/del(id=${history.id})}">delete</a>
+    </td>
+
+
+    </tr>
+    </tbody>
+</table>
+<form th:action="@{/api/history/add}" th:object="${history}" method="post">
+    <label>prim</label>
+    <input type="text" th:field="*{prim}">
+    <label>user id</label>
+    <input type="text" th:field="*{user.id}">
+    <button  type="submit">добавить</button>
+
+</form>
+</body>
+</html>
